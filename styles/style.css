@@ -1,0 +1,27 @@
+.buttonC{
+    background-color: blue;
+    color: white;
+    height: 30px;
+    margin-top: 3%;
+    border: solid 4px blue;
+    border-radius: 10px;
+    margin: 3%;
+}
+.buttonOriginal{
+    background-color: blue;
+    color: white;
+    height: 30px;
+    margin-top: 3%;
+    border: solid 4px blue;
+    border-radius: 10px;
+}
+.card{
+    background-color:rgb(246, 246, 170);
+    border-radius: 10px;
+    border: solid 4px rgb(246, 246, 170);
+    margin-top: 2%;
+}
+.List{
+    display: flex;
+    flex-direction: column;
+}
