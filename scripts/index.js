@@ -26,27 +26,28 @@ $("#random").on('click', function() {
 
 $("#clampAndDescending").on('click', function() {
 
+    let PeopleCopy=_.cloneDeep(People);
+    let clampedAges = PeopleCopy.map(person => _.clamp(person.age, 30, 70));
    
-    let clampedAges = People.map(person => _.clamp(person.age, 30, 70));
-    let PeopleCopy=People;
-    for (let index = 0; index < People.length; index++) {
+    for (let index = 0; index < PeopleCopy.length; index++) {
         PeopleCopy[index].age = clampedAges[index];
         
     }
-     sortedOrdered = _.orderBy(PeopleCopy, ['age'], ['desc']);
+    let sortedOrdered = _.orderBy(PeopleCopy, ['age'], ['desc']);
     render(sortedOrdered);
 });
 
 
 
 $("#clampAndAscending").on('click', function() {
-    let clampedAges = People.map(person => _.clamp(person.age, 30, 70));
-    let PeopleCopy=People;
-    for (let index = 0; index < People.length; index++) {
+    let PeopleCopy=_.cloneDeep(People);
+    let clampedAges = PeopleCopy.map(person => _.clamp(person.age, 30, 70));
+    
+    for (let index = 0; index < PeopleCopy.length; index++) {
         PeopleCopy[index].age = clampedAges[index];
         
     }
-     sortedOrdered = _.orderBy(PeopleCopy, ['age'], ['asc']);
+    let sortedOrdered = _.orderBy(PeopleCopy, ['age'], ['asc']);
     render(sortedOrdered);
 
 });
@@ -58,7 +59,7 @@ $("#Merge").on('click', function() {
         {name: "Person#7", age: 75,YearIncome:1400},
     ];
     
-     Concated = _.concat(People, PeopleAdd)
+     let Concated = _.concat(People, PeopleAdd)
     render(Concated);
 
 });
@@ -67,7 +68,7 @@ $("#Merge").on('click', function() {
 
 //It will only remove first element from the original array
 $("#DropFirst").on('click', function() {
-     AfterDrop = _.drop(People, 1)
+   let  AfterDrop = _.drop(People, 1)
     render(AfterDrop);
 
 });
@@ -89,7 +90,7 @@ $("#Union").on('click', function() {
         {name: "Person#12", age: 93, YearIncome:1000},
         {name: "Person#13", age: 75,YearIncome:1400},
     ];
-    Union = _.union(People,U1,U2,U3,U4);
+   let Union = _.union(People,U1,U2,U3,U4);
    render(Union);
 
 });
@@ -98,14 +99,14 @@ $("#Union").on('click', function() {
 
 $("#DropFirstFromTheEnd").on('click', function() {
 
-    AfterDrop = _.dropRight(People, 1)
+  let AfterDrop = _.dropRight(People, 1)
     render(AfterDrop);
 
 });
 
 
 $("#Slice").on('click', function() {
-    AfterDrop= _.slice(People, 0, 2);
+   let AfterDrop= _.slice(People, 0, 2);
     render(AfterDrop);
 
 });
@@ -139,7 +140,7 @@ function render(PeopleList) {
     $list.empty(); // Clear existing list
 
     PeopleList.forEach(element => {
-        const Card = `
+        let Card = `
             <div class="card">
                 <h3>${element.name}</h3>
                 <p>Age: ${element.age}</p>
@@ -160,7 +161,7 @@ function renderOriginal(PeopleList) {
     $list.empty(); // Clear existing list
 
     PeopleList.forEach(element => {
-        const Card = `
+        let Card = `
             <div>
                 <h3>${element.name}</h3>
                 <p>Age: ${element.age}</p>
